@@ -1,0 +1,32 @@
+@font-face {
+    font-family: black-;
+    src: url("../fonts/Gilroy-Black.ttf");
+}
+@font-face {
+    font-family: extra-bold-;
+    src: url("../fonts/Gilroy-ExtraBold.ttf");
+}
+@font-face {
+    font-family: semi-bold-;
+    src: url("../fonts/Gilroy-SemiBold.ttf");
+}
+
+*{
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: semi-bold-;
+    text-decoration: none;
+}
+
+.brdls{
+    border: none;
+}
+.bgls{
+    background: none;
+}
+body{
+    background: linear-gradient(180deg, rgba(124, 118, 118, 0.13) 0%, rgba(59, 56, 56, 0.64) 55.26%, rgba(22, 21, 21, 0.87) 91.85%);
+    min-height: 100vh;
+}
