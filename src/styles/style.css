@@ -153,6 +153,89 @@
 .contact-other > div > div > p:nth-child(1) {
     font-family: extra-bold-;
 }
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.input-group p {
+    font-family: extra-bold-;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    color: #ffffff;
+}
+.input-group input{
+    padding: 14px 16px;
+    font-size: 16px;
+    color: #DEDEDE;
+    border: 1.5px solid #ffffff;
+    outline: none;
+    background-color: transparent;
+}
+.input-group input:focus{
+    border-color: #ae0ed6;
+}
+
+.manual-form{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    background-color: #000000c4;
+    backdrop-filter: blur(10px);
+}
+.manual-form .content{
+    width: clamp(360px, 70vw, 900px);
+    background: linear-gradient(180deg, rgba(236, 236, 236, 0.16) 0%, rgba(218, 218, 218, 0.1) 100%);
+    backdrop-filter: blur(100px);
+    box-shadow: 0px 4px 10.6px 4px #FFFFFF0F inset;
+    padding: 3em;
+    padding-bottom: 1em;
+    border-radius: 1em;
+    position: relative;
+}   
+.manual-form .main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+}
+.manual-form .close-btn{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background-color: #114252aa;
+    padding: .4em;
+    border: none;
+    font-size: 14px;
+    border-radius: .5em;
+    outline: none;
+    cursor: pointer;
+}
+.manual-form .close-btn:hover{
+    box-shadow: 0px 4px 10.6px 4px #FFFFFF0F inset;
+}
+
+.result-cont{
+    margin: 3em auto;
+    text-align: center;
+    width: 50%;
+}
+
+.result-cont p{
+    font-family: extra-bold-;
+    font-weight: 400;
+    font-size: 20px;
+}
+.result-cont .res{
+    margin: 1em auto;
+    border: 1px solid #ffffff;
+    padding: .5em;
+    border-radius: .5em;
+}
 
 @media screen and (max-width: 480px) {
     .mobile {
@@ -291,5 +374,36 @@
     }
     .nav.off {
         animation: slideUp 0.3s ease-in forwards;
+    }
+    .manual-form{
+        align-items: flex-start;
+    }
+    .manual-form .content{
+        width: 90vw;
+        padding: 3em 1em;
+        border-radius: .8em;
+        padding-bottom: 0;
+    }   
+    .manual-form .main{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2em;
+    }
+    .input-group p {
+        font-size: 18px;
+    }
+    .input-group input{
+        padding: 13px 15px;
+        font-size: 14px;
+    }
+    .result-cont{
+        margin: 2em auto;
+        width: 90%;
+    }   
+    .result-cont p{
+        font-size: 18px;
+    }
+    .result-cont .res{
+        margin: 1em auto;
     }
 }

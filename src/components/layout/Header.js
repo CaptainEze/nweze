@@ -10,8 +10,8 @@ const Header = () => {
             <span className="org-id">GTF</span>
             <nav className={`nav desktop ${navOpen ? "on" : "off"}`}>
                 <NavLink to={"/"}>Home</NavLink>
-                <NavLink to={"/contact"}>Contact Us</NavLink>
-                <NavLink to={"/about"}>About</NavLink>
+                {/* <NavLink to={"/contact"}>Contact Us</NavLink>
+                <NavLink to={"/about"}>About</NavLink> */}
                 <button
                     className="brdls bgls mobile close"
                     onClick={() => {
