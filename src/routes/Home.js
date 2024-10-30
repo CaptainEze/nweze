@@ -4,6 +4,7 @@ import Header from "../components/layout/Header";
 import Main from "../components/layout/Main";
 import ManualForm from "../components/ManualForm";
 import { ArrowRight } from "../components/svgs";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const [isInputActive, setIsInputActive] = useState(false);
@@ -32,9 +33,9 @@ const Home = () => {
                             <span>Manual Input</span>
                             <ArrowRight />
                         </button>
-                        <button className="bgls">
+                        <Link className="bgls" to={"/playground"}>
                             <span>Automatic Input</span>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </Main>

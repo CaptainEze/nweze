@@ -7,11 +7,13 @@ const ManualForm = ({ close = () => {} }) => {
     const [depthValue, setDepthValue] = useState();
     const [phValue, setPhValue] = useState();
     const [pcValue, setPcValue] = useState();
+    const [caliperValue, setCaliperValue] = useState();
+    const [resValue, setResValue] = useState();
 
     const [fpv, setFpv] = useState("--result--");
 
     useEffect(() => {
-        if (nphiValue && grValue && depthValue && phValue && pcValue) {
+        if (nphiValue && grValue && depthValue && phValue && pcValue && caliperValue && resValue) {
             console.log("active");
 
             // Do the request here.
@@ -28,8 +30,35 @@ const ManualForm = ({ close = () => {} }) => {
             // After the computation and a result is obtained, format it properly
             // and call: `setFpv(value)` where value is the formatted result.
             // setFpv() automatically updates the UI
+
+            const data = {
+                nphiValue, grValue, depthValue, phValue, pcValue, caliperValue, resValue
+            }
+
+            fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json' // Set content type to JSON
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    setFpv(data.res);
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+        setFpv("uyuiy");
         }
-    }, [nphiValue, grValue, depthValue, phValue, pcValue]);
+
+
+    }, [nphiValue, grValue, depthValue, phValue, pcValue, caliperValue, resValue]);
 
     return (
         <div className="manual-form">
@@ -37,13 +66,29 @@ const ManualForm = ({ close = () => {} }) => {
                 <button className="close-btn" onClick={close}>
                     Close
                 </button>
-                <div className="main">
+                 <div className="main">
                     <StyledInputBase
                         title={"NPHI"}
                         type="number"
                         placeholder="Enter NPHI value"
                         onInput={(v) => {
                             setNphiValue(v);
+                        }}
+                    />
+                    <StyledInputBase
+                        title={"Caliper"}
+                        type="number"
+                        placeholder="Enter Caliper value"
+                        onInput={(v) => {
+                            setCaliperValue(v);
+                        }}
+                    />
+                    <StyledInputBase
+                        title={"RES"}
+                        type="number"
+                        placeholder="Enter Resistivity value"
+                        onInput={(v) => {
+                            setResValue(v);
                         }}
                     />
                     <StyledInputBase
@@ -63,17 +108,17 @@ const ManualForm = ({ close = () => {} }) => {
                         }}
                     />
                     <StyledInputBase
-                        title={"PH"}
+                        title={"SONIC"}
                         type="number"
-                        placeholder="Enter PH value"
+                        placeholder="Enter Sonic value"
                         onInput={(v) => {
                             setPhValue(v);
                         }}
                     />
                     <StyledInputBase
-                        title={"PC"}
+                        title={"Density"}
                         type="number"
-                        placeholder="Enter PC value"
+                        placeholder="Enter Density value"
                         onInput={(v) => {
                             setPcValue(v);
                         }}
