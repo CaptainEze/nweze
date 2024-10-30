@@ -283,6 +283,9 @@
 .pin:nth-child(1) .im {
     background-image: url("../assets/s1.png");
 }
+.pin:nth-child(2) .im {
+    background-image: url("../assets/s2.png");
+}
 .pin:nth-child(3) .im {
     background-image: url("../assets/s3.png");
 }
