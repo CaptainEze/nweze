@@ -14,7 +14,7 @@ const Home = () => {
             <Main>
                 <div className="home">
                     <p className="head">
-                        Formation Pressure
+                        PetroDynamics
                         <br />
                         Predictor
                     </p>
