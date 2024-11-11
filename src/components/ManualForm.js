@@ -14,7 +14,6 @@ const ManualForm = ({ close = () => {} }) => {
 
     useEffect(() => {
         if (nphiValue && grValue && depthValue && phValue && pcValue && caliperValue && resValue) {
-            console.log("active");
 
             // Do the request here.
             // ----------------------------------
@@ -57,8 +56,6 @@ const ManualForm = ({ close = () => {} }) => {
                     console.error('Fetch error:', error);
                 });
         }
-
-
     }, [nphiValue, grValue, depthValue, phValue, pcValue, caliperValue, resValue]);
 
     return (

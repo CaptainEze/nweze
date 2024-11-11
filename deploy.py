@@ -12,12 +12,13 @@ import os
 import base64
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:3000"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Load the pre-trained model
 model = load_model('my_model.h5')
 
 @app.route('/predict', methods=['POST'])
+
 def predict():
     data = request.get_json()
     DEPTH = float(data["depthValue"])
